@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400')
+
+//Variables
+$bg: linear-gradient(to bottom right, #5394E8,rgba(#3645d1,.9),rgba(#682be2,.8))
+$primary: #5DA0DF
+$red: #ED3232
+$grey: #837E7E
+
+html
+	height: 100%
+
+body
+	font-family: 'Roboto', sans-serif
+	background: $bg
+	height: 100%
+	background-repeat: no-repeat
+	background-attachment: fixed
+.notify
+	text-align: center
+	font-weight: 300
+	font-size: 1.5em
+	color: rgba(white, .8)
+.btn
+	padding: 0
+	border: none
+	background: transparent
+	outline: none
+	cursor: pointer
+
+.container
+	width: 550px
+	max-width: 97%
+	margin: 0 auto
+	padding: 50px 0
+	.wrapper
+		margin: 0 auto
+		text-align: center
+		box-sizing: border-box
+		position: relative
+		input[type="text"]
+			width: 100%
+			height: 60px
+			padding: 0 60px 0 15px
+			background: rgba(white, .95)
+			box-sizing: border-box
+			border: none
+			border-radius: 3px
+			box-shadow: 0 2px 5px rgba(0,0,0,.2)
+			color: $grey
+			outline: none
+			transition: background 0.2s ease-in-out
+			&::placeholder
+				color: $grey
+			&:focus
+				background: white
+		.btn-add-todo
+			width: 60px
+			height: 60px
+			position: absolute
+			top: 0
+			right: 0
+			border-radius: 3px
+			&:hover .path-fill
+				fill: rgba($primary,.6)
+			.add-icon
+				position: absolute
+				top: 50%
+				left: 50%
+				margin: -9px 0 0 -9px
+				transform: rotate(45deg)
+				.path-fill
+					transition: fill 0.2s ease-in-out
+
+	.border
+		width: 250px
+		max-width: 50%
+		margin: 50px auto
+		border: none
+		height: 0.75px
+		background: rgba(white, 0.5)
+
+	.todo-wrap
+		.todos
+			list-style: none
+			margin: 0
+			padding: 0 10px
+			color: white
+			perspective: 700px
+			li
+				padding: 20px 40px
+				margin-top: 20px
+				background: rgba(white, .3)
+				border-radius: 3px
+				box-shadow: 0 2px 5px rgba(0,0,0,.2)
+				transition: all 0.2s ease-in-out
+				position: relative
+				transform-origin: center
+				&:hover
+					background: white
+					box-shadow: 0 3px 8px rgba(0,0,0,.3)
+					color: $grey
+				&:hover .delete
+					fill: $red
+				&:hover .uncomplete, &:hover .tick-toggle
+					fill: $primary
+				&.zoom-in-todo
+					animation: animTodo 1s cubic-bezier(.18,1.23,.66,1) forwards
+				&.zoom-out
+					animation: removeAnim 1s cubic-bezier(.18,1.23,.66,1) forwards
+
+				.btn-completetoggle-todo
+					position: absolute
+					top: 50%
+					left: 10px
+					margin-top: -10px
+					.tick
+						position: absolute
+						top: 50%
+						left: 50%
+						margin: -7px 0 0 -5px
+						opacity: 0
+						transition: opacity 0.15s ease-in-out
+						&.todo-done
+							opacity: 1
+
+
+				.btn-delete-todo
+					position: absolute
+					top: 50%
+					right: 10px
+					margin-top: -8.5px
+					&:hover .delete
+						fill: rgba($red, .6)
+					.delete
+						transition: fill 0.2s ease-in-out
+
+@keyframes animTodo
+	0%
+		opacity: 0
+		transform: translateZ(200px)
+	100%
+		opacity: 1
+		transform: translateZ(0)
+
+@keyframes removeAnim
+	0%
+		transform: translateZ(0)
+		opacity: 1
+	100%
+		transform: translateZ(200px)
+		opacity: 0

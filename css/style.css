@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+html {
+  height: 100%; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, #5394E8, rgba(54, 69, 209, 0.9), rgba(104, 43, 226, 0.8));
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+.notify {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.8); }
+
+.btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer; }
+
+.container {
+  width: 550px;
+  max-width: 97%;
+  margin: 0 auto;
+  padding: 50px 0; }
+  .container .wrapper {
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative; }
+    .container .wrapper input[type="text"] {
+      width: 100%;
+      height: 60px;
+      padding: 0 60px 0 15px;
+      background: rgba(255, 255, 255, 0.95);
+      box-sizing: border-box;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      color: #837E7E;
+      outline: none;
+      transition: background 0.2s ease-in-out; }
+      .container .wrapper input[type="text"]::-webkit-input-placeholder {
+        color: #837E7E; }
+      .container .wrapper input[type="text"]:-ms-input-placeholder {
+        color: #837E7E; }
+      .container .wrapper input[type="text"]::placeholder {
+        color: #837E7E; }
+      .container .wrapper input[type="text"]:focus {
+        background: white; }
+    .container .wrapper .btn-add-todo {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 3px; }
+      .container .wrapper .btn-add-todo:hover .path-fill {
+        fill: rgba(93, 160, 223, 0.6); }
+      .container .wrapper .btn-add-todo .add-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -9px 0 0 -9px;
+        transform: rotate(45deg); }
+        .container .wrapper .btn-add-todo .add-icon .path-fill {
+          transition: fill 0.2s ease-in-out; }
+  .container .border {
+    width: 250px;
+    max-width: 50%;
+    margin: 50px auto;
+    border: none;
+    height: 0.75px;
+    background: rgba(255, 255, 255, 0.5); }
+  .container .todo-wrap .todos {
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+    color: white;
+    perspective: 700px; }
+    .container .todo-wrap .todos li {
+      padding: 20px 40px;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      transform-origin: center; }
+      .container .todo-wrap .todos li:hover {
+        background: white;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        color: #837E7E; }
+      .container .todo-wrap .todos li:hover .delete {
+        fill: #ED3232; }
+      .container .todo-wrap .todos li:hover .uncomplete, .container .todo-wrap .todos li:hover .tick-toggle {
+        fill: #5DA0DF; }
+      .container .todo-wrap .todos li.zoom-in-todo {
+        animation: animTodo 1s cubic-bezier(0.18, 1.23, 0.66, 1) forwards; }
+      .container .todo-wrap .todos li.zoom-out {
+        animation: removeAnim 1s cubic-bezier(0.18, 1.23, 0.66, 1) forwards; }
+      .container .todo-wrap .todos li .btn-completetoggle-todo {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -10px; }
+        .container .todo-wrap .todos li .btn-completetoggle-todo .tick {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -7px 0 0 -5px;
+          opacity: 0;
+          transition: opacity 0.15s ease-in-out; }
+          .container .todo-wrap .todos li .btn-completetoggle-todo .tick.todo-done {
+            opacity: 1; }
+      .container .todo-wrap .todos li .btn-delete-todo {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -8.5px; }
+        .container .todo-wrap .todos li .btn-delete-todo:hover .delete {
+          fill: rgba(237, 50, 50, 0.6); }
+        .container .todo-wrap .todos li .btn-delete-todo .delete {
+          transition: fill 0.2s ease-in-out; }
+
+@keyframes animTodo {
+  0% {
+    opacity: 0;
+    transform: translateZ(200px); }
+  100% {
+    opacity: 1;
+    transform: translateZ(0); } }
+
+@keyframes removeAnim {
+  0% {
+    transform: translateZ(0);
+    opacity: 1; }
+  100% {
+    transform: translateZ(200px);
+    opacity: 0; } }
